@@ -13,58 +13,12 @@ import {
 import Image from 'next/image';
 import { Button } from '@/components/button';
 import { Card, CardContent } from '@/components/card';
+import chefs from '@/lib/chefs';
+import testimonials from '@/lib/testimonials';
 
 export default function BackyardRestaurantLanding() {
   const [currentChef, setCurrentChef] = useState(0);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const chefs = [
-    {
-      name: 'Maria Rodriguez',
-      cuisine: 'Modern Mexican',
-      rating: 4.9,
-      reviews: 127,
-      image: '/images/chef-maria.png',
-      specialty: 'Farm-to-table tacos with house-made tortillas',
-    },
-    {
-      name: 'James Chen',
-      cuisine: 'Asian Fusion',
-      rating: 4.8,
-      reviews: 89,
-      image: '/images/chef-james.png',
-      specialty: 'Innovative ramen and dumplings',
-    },
-    {
-      name: 'Sophie Laurent',
-      cuisine: 'French Bistro',
-      rating: 5.0,
-      reviews: 156,
-      image: '/images/chef-sophie.png',
-      specialty: 'Classic French dishes with a modern twist',
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      text: "The most incredible dining experience! Chef Maria's backyard felt like a hidden gem in Tuscany. The food was absolutely divine.",
-      rating: 5,
-      location: 'San Francisco, CA',
-    },
-    {
-      name: 'Michael Torres',
-      text: 'James created magic in his garden. Every dish was a work of art, and the intimate setting made it unforgettable.',
-      rating: 5,
-      location: 'Austin, TX',
-    },
-    {
-      name: 'Emma Wilson',
-      text: "Sophie's French bistro night was perfection. From the ambiance to the last bite of dessert, everything was flawless.",
-      rating: 5,
-      location: 'Portland, OR',
-    },
-  ];
 
   const trustLogos = [
     'Food & Wine',
@@ -87,7 +41,7 @@ export default function BackyardRestaurantLanding() {
       clearInterval(chefInterval);
       clearInterval(testimonialInterval);
     };
-  }, [chefs.length, testimonials.length]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-warm-bg font-body">
@@ -227,9 +181,11 @@ export default function BackyardRestaurantLanding() {
 
       {/* Trust Strip */}
       <section className="px-6 lg:px-8 py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-center text-sm text-gray-500 mb-8">Featured in</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
+        <div className="max-w-7xl mx-auto text-center">
+          <h3 className="text-xl lg:text-2xl font-heading font-bold text-gray-900">
+            Featured in
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-4 lg:gap-12">
             {trustLogos.map((logo, index) => (
               <div key={index} className="text-gray-400 font-semibold text-lg">
                 {logo}
