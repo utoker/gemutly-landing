@@ -1,2 +1,5 @@
-# gemutly-landing
-Landing page for Gemutly
+# Landig Page
+
+lucide-react icons
+tailwind
+shadcn
